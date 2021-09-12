@@ -46,7 +46,7 @@ class JdbcConfiguration {
     }
     
     @Bean
-    Dialect jdbcH2Dialect(NamedParameterJdbcOperations namedParameterJdbcOperations) {
+    Dialect jdbcDialect(NamedParameterJdbcOperations namedParameterJdbcOperations) {
 		return H2Dialect.INSTANCE;
     }
     
@@ -57,8 +57,8 @@ class JdbcConfiguration {
     }
     
     @Bean
-    SqlGeneratorSource sqlGeneratorSource(RelationalMappingContext mappingContext, @Lazy JdbcConverter jdbcConverter, Dialect jdbcH2Dialect) {
-    	SqlGeneratorSource sqlGeneratorSource = new SqlGeneratorSource(mappingContext, jdbcConverter, jdbcH2Dialect);
+    SqlGeneratorSource sqlGeneratorSource(RelationalMappingContext mappingContext, @Lazy JdbcConverter jdbcConverter, Dialect jdbcDialect) {
+    	SqlGeneratorSource sqlGeneratorSource = new SqlGeneratorSource(mappingContext, jdbcConverter, jdbcDialect);
     	return sqlGeneratorSource;
     }
     
