@@ -103,10 +103,10 @@ class JdbcConfiguration {
 			StringIdMinion before = new StringIdMinion("Kevin");
 			
 			stringIdMinionRepository.save(before);
-			log.info(before.getId());
+			log.info(before.id);
 
-			StringIdMinion reloaded = stringIdMinionRepository.findById(before.getId()).get();
-			log.info(reloaded.getName());
+			StringIdMinion reloaded = stringIdMinionRepository.findById(before.id).get();
+			log.info(reloaded.name);
 		};
 	}
 }
