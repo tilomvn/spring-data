@@ -1,4 +1,4 @@
-package com.spring.data;
+package com.spring.data.jdbc;
 
 import java.util.UUID;
 
@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -93,6 +94,19 @@ class JdbcConfiguration {
 				//mutableAggregateChange.addAction(new DbAction.AcquireLockAllRoot<StringIdMinion>(StringIdMinion.class));
 			}
 			return minion;
+		};
+	}
+    
+    @Bean
+	ApplicationRunner run(StringIdMinionRepository stringIdMinionRepository) {
+		return args -> {
+			StringIdMinion before = new StringIdMinion("Kevin");
+			
+			stringIdMinionRepository.save(before);
+			log.info(before.getId());
+
+			StringIdMinion reloaded = stringIdMinionRepository.findById(before.getId()).get();
+			log.info(reloaded.getName());
 		};
 	}
 }

@@ -1,15 +1,19 @@
-package com.spring.data;
+package com.spring.data.jdbc;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-//@Table
-class StringIdMinion {
+@Table
+public class StringIdMinion {
+	
 	@Id
 	String id;
 	String name;
 	
 	StringIdMinion() {}
-	StringIdMinion(String name) { this.name = name; }
+	public StringIdMinion(String name) { this.name = name; }
 	StringIdMinion(String id, String name) { this.id = id; this.name = name; }
+	
+	public String getId() { return this.id; }
+	public String getName() { return this.name; }
 }
