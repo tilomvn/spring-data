@@ -5,3 +5,6 @@
 # Spring Data - Support jMolecules’ @Identity as ID annotation
 * Reference: https://spring.io/blog/2021/09/17/spring-data-2021-1-0-m3-released
 * Still not in current version 2.5.4 ?
+
+# Multiple DataSource Sample
+* Sample configuration for distributed session datasource and application datasource.

@@ -1,14 +1,16 @@
 package com.spring.data.jpa;
 
-import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+
+import com.spring.data.jpa.app.StringIdRepository;
+import com.spring.data.jpa.app.TEntity;
+import com.spring.data.jpa.session.TStringIdRepository;
+import com.spring.data.jpa.session.TTEntity;
 
 
 @Configuration
@@ -16,22 +18,25 @@ class JpaConfiguration {
 
 	Logger log = LoggerFactory.getLogger(getClass());
 	
-	@Bean
-    public DataSource dataSource() {                                                   
-        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        return builder.setType(EmbeddedDatabaseType.H2).build();
-    }
-    
     @Bean
-	ApplicationRunner run(StringIdRepository stringIdRepository) {
+	ApplicationRunner run(StringIdRepository stringIdRepository, TStringIdRepository tStringIdRepository) {
 		return args -> {
 			TEntity before = new TEntity("Kevin");
 			
 			stringIdRepository.save(before);
-			log.info(before.id);
+			log.info(before.getId());
 
-			TEntity reloaded = stringIdRepository.findById(before.id).get();
-			log.info(reloaded.name);
+			TEntity reloaded = stringIdRepository.findById(before.getId()).get();
+			log.info(reloaded.getName());
+			
+			
+			TTEntity beforeJeff = new TTEntity("Jeff");
+			
+			tStringIdRepository.save(beforeJeff);
+			log.info(beforeJeff.getId());
+
+			TTEntity reloadedJeff = tStringIdRepository.findById(beforeJeff.getId()).get();
+			log.info(reloadedJeff.getName());
 		};
 	}
 }
