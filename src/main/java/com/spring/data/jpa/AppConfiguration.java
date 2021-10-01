@@ -47,6 +47,7 @@ class AppConfiguration {
        return builder.dataSource(appDataSource).properties(new HashMap<String, Object>() {{
     	   put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
     	   put("hibernate.hbm2ddl.auto", "update");
+    	   put("hibernate.show_sql", "true");
        }}).packages(TEntity.class).build();
     }
 	

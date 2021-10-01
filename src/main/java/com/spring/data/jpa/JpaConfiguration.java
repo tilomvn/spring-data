@@ -28,7 +28,11 @@ class JpaConfiguration {
 
 			TEntity reloaded = stringIdRepository.findById(before.getId()).get();
 			log.info(reloaded.getName());
+			log.info(reloaded.getRecordStatus());
 			
+			stringIdRepository.delete(reloaded);
+			reloaded = stringIdRepository.findById(before.getId()).get();
+			log.info(reloaded.getRecordStatus());
 			
 			TTEntity beforeJeff = new TTEntity("Jeff");
 			
