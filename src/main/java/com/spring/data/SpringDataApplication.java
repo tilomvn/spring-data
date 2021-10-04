@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 
 
 //@SpringBootApplication
-//@SpringBootApplication(scanBasePackages = "com.spring.data.jdbc", exclude = {JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-@SpringBootApplication(scanBasePackages = "com.spring.data.jpa")
+@SpringBootApplication(scanBasePackages = "com.spring.data.jdbc", exclude = {JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+//@SpringBootApplication(scanBasePackages = "com.spring.data.jpa")
 public class SpringDataApplication {
 
 	Logger log = LoggerFactory.getLogger(getClass());
