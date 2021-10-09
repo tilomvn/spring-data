@@ -1,6 +1,6 @@
 # Spring Data JDBC - How to custom ID generation
 * Reference: https://spring.io/blog/2021/09/09/spring-data-jdbc-how-to-use-custom-id-generation
-* Demostration using Listener
+* Demonstration using Listener
 
 # Spring Data JDBC - How do I make Bidirectional Relationships
 * https://spring.io/blog/2021/09/22/spring-data-jdbc-how-do-i-make-bidirectional-relationships
