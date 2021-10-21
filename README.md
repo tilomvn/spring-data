@@ -6,6 +6,10 @@
 * https://spring.io/blog/2021/09/22/spring-data-jdbc-how-do-i-make-bidirectional-relationships
 * It does not work with current version 2.2.x ???
 
+# Spring Data JDBC - How do I implement caching ?
+* https://spring.io/blog/2021/10/18/spring-data-jdbc-how-do-i-implement-caching
+* Using JCache on repository layer
+
 # Spring Data - Support jMolecules’ @Identity as ID annotation
 * Reference: https://spring.io/blog/2021/09/17/spring-data-2021-1-0-m3-released
 * Still not in current version 2.5.4 ?
