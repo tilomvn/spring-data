@@ -16,3 +16,9 @@
 
 # Multiple DataSource Sample
 * Sample configuration for distributed session datasource and application datasource.
+* ChainedTransactionManager sample: 
+* @Bean(name = "chainedTransactionManager")
+  public ChainedTransactionManager transactionManager(@Qualifier("primaryDs") PlatformTransactionManager ds1,
+                                                  @Qualifier("secondaryDs") PlatformTransactionManager ds2) {
+       return new ChainedTransactionManager(ds1, ds2);
+  }
